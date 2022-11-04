@@ -1,0 +1,46 @@
+@font-face{
+    font-family: 'JetBrainsMono';
+    src: url('./assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf');
+}
+
+@font-face{
+    font-family: 'JetBrainsMono';
+    src: url('./assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf');
+    font-style: italic;
+}
+
+
+:root {
+    /*colors*/
+    --color-dark-grey: #24232C;
+    --color-med-grey: #817D92;
+    --color-light-grey: #E6E5EA;
+    --color-dark-blue: #18171F;
+    --color-green: #A4FFAF;
+    --color-red: #F64A4A;
+    --color-orange: #FB7C58;
+    --color-yellow: #F8CD65;  
+}
+
+
+body {
+    font-family: 'JetBrainsMono', monospace;
+}
+
+.theme-heading-lg{
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 43px;
+}
+
+.theme-heading-md{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+}
+
+.theme-body{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+}
