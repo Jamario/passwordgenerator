@@ -1,0 +1,19 @@
+.container {
+    background-color: var(--color-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 16px;
+}
+
+.generator {
+    width: 100%;
+}
+
+.header {
+    font-size: 1.6rem;
+    color: var(--color-med-grey);
+    text-align: center;
+}

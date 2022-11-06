@@ -1,6 +1,6 @@
 @font-face{
     font-family: 'JetBrainsMono';
-    src: url('./assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf');
+    src: url('./assets/fonts/JetBrainsMono-VariableFont_wght.ttf');
 }
 
 @font-face{
@@ -19,28 +19,31 @@
     --color-green: #A4FFAF;
     --color-red: #F64A4A;
     --color-orange: #FB7C58;
-    --color-yellow: #F8CD65;  
+    --color-yellow: #F8CD65;
+    --color-background: #08070B; 
+    --color-white: #E6E5EA;
+
 }
 
+html {
+    font-size: 10px;
+}
 
 body {
     font-family: 'JetBrainsMono', monospace;
 }
 
 .theme-heading-lg{
-    font-weight: bold;
-    font-size: 32px;
+    font-size: 3.2rem;
     line-height: 43px;
 }
 
 .theme-heading-md{
-    font-weight: bold;
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 31px;
 }
 
 .theme-body{
-    font-weight: bold;
-    font-size: 18px;
+    font-size: 1.6rem;
     line-height: 23px;
 }

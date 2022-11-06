@@ -1,0 +1,19 @@
+.container {
+    height: 64px;
+    color: var(--color-white);
+    background-color: var(--color-dark-grey);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin: 18px 0;
+}
+
+.password {
+    font-size: 2.4rem;
+}
+
+.copy {
+    font-size: 1.8rem;
+}

@@ -1,0 +1,59 @@
+.container {
+    width: 100%;
+    background-color: #18171F;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 16px;
+    margin-top: 32px;
+}
+
+.title {
+    color: var(--color-med-grey);
+}
+
+.guage {
+    color: var(--color-white);
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.bars {
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;
+}
+
+.bar {
+    width: 10px;
+    border: 2px solid var(--color-white);
+    margin-right: 8px;
+}
+
+.bar:last-child {
+    margin-right: 0;
+}
+
+.active {
+    border: none;
+}
+
+.tooWeak>.active {
+    background-color: var(--color-red);
+}
+
+.weak>.active {
+    background-color: var(--color-orange);
+}
+
+.medium>.active {
+    background-color: var(--color-yellow);
+}
+
+.strong>.active {
+    background-color: var(--color-green);
+}

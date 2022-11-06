@@ -1,15 +1,18 @@
-import { useState } from "react";
-import "./App.css";
+import styles from "./app.module.css";
 
-function App() {
-    const [count, setCount] = useState(0);
+import PasswordOutput from "./components/PasswordOutput";
+import Form from "./components/Form";
 
+const App = (): JSX.Element => {
     return (
-        <div className="App">
-            <h1 className="theme-heading-lg">Heading 1</h1>
-            <p className="read-the-docs">Hello World!</p>
-        </div>
+        <main className={`${styles.container} theme-body`}>
+            <div className={styles.generator}>
+                <header className={styles.header}>Password Generator</header>
+                <PasswordOutput />
+                <Form />
+            </div>
+        </main>
     );
-}
+};
 
 export default App;

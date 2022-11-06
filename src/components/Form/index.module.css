@@ -1,0 +1,64 @@
+.container {
+    width: 100%;
+    color: var(--color-white);
+    background-color: var(--color-dark-grey);
+    padding: 20px 16px;
+}
+
+.characterLength {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.characterLength span {
+    color: var(--color-green);
+}
+
+.slider {
+    position: relative;
+    height: 8px;
+    background-color: var(--color-green);
+    z-index: 1;
+}
+
+.circle {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    position: absolute;
+    top: -10px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.checkboxContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkboxContainer input {
+    margin-right: 22px;
+}
+
+.form {
+    margin-top: 42px;
+}
+
+.submitButton {
+    background-color: var(--color-green);
+    border: none;
+    height: 56px;
+    margin-top: 16px;
+    width: 100%;
+    font: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.submitButton img {
+    margin-left: 16px;
+}
