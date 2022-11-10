@@ -1,5 +1,6 @@
 import styles from "./index.module.css";
 import arrowImage from "../../assets/images/icon-arrow-right.svg";
+import checkmarkImage from "../../assets/images/icon-check.svg";
 
 import StrengthIndicator from "../StrengthIndicator";
 
@@ -14,7 +15,9 @@ const Checkbox = ({ id, name, value, label }: CheckboxProps): JSX.Element => {
     return (
         <label htmlFor={id} className={styles.checkboxContainer}>
             <input type="checkbox" id={id} name={name} value={value} />
-            <span className={styles.checkmark}></span>
+            <div className={styles.checkmark}>
+                <img src={checkmarkImage} />
+            </div>
             {label}
         </label>
     );

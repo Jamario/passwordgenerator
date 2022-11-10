@@ -17,3 +17,7 @@
 .copy {
     font-size: 1.8rem;
 }
+
+.container img:hover {
+    color: var(--color-white);
+}

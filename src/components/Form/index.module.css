@@ -22,6 +22,7 @@
     align-items: center;
     position: relative;
     padding-left: 44px;
+    margin-bottom: 14px;
 }
 
 .checkboxContainer input {
@@ -39,14 +40,23 @@
     height: 20px;
     width: 20px;
     border: 2px solid var(--color-white);
+    text-align: center;
 }
 
-.checkboxContainer:hover input ~ .checkmark {
-    background-color: red;
+.checkmark img {
+    visibility: hidden;
 }
+/* .checkboxContainer:hover input ~ .checkmark {
+    opacity: 0.5;
+} */
 
 .checkboxContainer input:checked ~ .checkmark {
     background-color: var(--color-green);
+    border: none;
+}
+
+.checkboxContainer input:checked ~ .checkmark img {
+    visibility: visible;
 }
 
 .submitButton {
@@ -92,6 +102,7 @@
     border-radius: 50%;
     cursor: pointer;
     margin-top: -10px;
+    border: none;
 }
 
 .slider > input::-moz-range-track {
@@ -106,4 +117,5 @@
     width: 28px;
     border-radius: 50%;
     cursor: pointer;
+    border: none;
 }
