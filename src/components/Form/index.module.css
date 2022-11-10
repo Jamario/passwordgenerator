@@ -16,24 +16,6 @@
     color: var(--color-green);
 }
 
-.slider {
-    position: relative;
-    height: 8px;
-    background-color: var(--color-green);
-    z-index: 1;
-}
-
-.circle {
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background-color: var(--color-white);
-    position: absolute;
-    top: -10px;
-    z-index: 2;
-    cursor: pointer;
-}
-
 .checkboxContainer {
     display: flex;
     flex-direction: row;
@@ -42,10 +24,6 @@
 
 .checkboxContainer input {
     margin-right: 22px;
-}
-
-.form {
-    margin-top: 42px;
 }
 
 .submitButton {
@@ -61,4 +39,49 @@
 
 .submitButton img {
     margin-left: 16px;
+}
+
+
+/* Slide styles */
+.slider {
+    margin-bottom: 32px;
+}
+
+.slider > input {
+    appearance: none;
+    background: transparent;
+    width: 100%;
+}
+
+.slider > input:focus {
+    outline: none;
+}
+
+.slider > input::-webkit-slider-runnable-track {
+    background-color: var(--color-green);
+    height: 8px;
+}
+
+.slider > input::-webkit-slider-thumb {
+    appearance: none;
+    background-color: var(--color-white);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -10px;
+}
+
+.slider > input::-moz-range-track {
+    background-color: var(--color-green);
+    height: 8px;
+}
+
+.slider > input::-moz-range-thumb {
+    appearance: none;
+    background-color: var(--color-white);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    cursor: pointer;
 }

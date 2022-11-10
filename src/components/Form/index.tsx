@@ -27,11 +27,10 @@ const Form = (): JSX.Element => {
                 <span>10</span>
             </div>
 
-            <div className={styles.slider}>
-                <div className={styles.circle} />
-            </div>
-
             <form id="strengthForm" className={styles.form}>
+                <div className={styles.slider}>
+                    <input type="range" min={0} max={22} defaultValue={8} />
+                </div>
                 <Checkbox id="uppercaseCheckbox" name="uppercase" value="yes" label="Include Uppercase Letters" />
                 <Checkbox id="lowercaseCheckbox" name="lowercase" value="yes" label="Include Lowercase Letters" />
                 <Checkbox id="numbersCheckbox" name="numbers" value="yes" label="Include Numbers" />
