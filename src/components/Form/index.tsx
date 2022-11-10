@@ -12,10 +12,11 @@ interface CheckboxProps {
 
 const Checkbox = ({ id, name, value, label }: CheckboxProps): JSX.Element => {
     return (
-        <div className={styles.checkboxContainer}>
+        <label htmlFor={id} className={styles.checkboxContainer}>
             <input type="checkbox" id={id} name={name} value={value} />
-            <label htmlFor={id}>{label}</label>
-        </div>
+            <span className={styles.checkmark}></span>
+            {label}
+        </label>
     );
 };
 
