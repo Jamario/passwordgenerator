@@ -1,3 +1,8 @@
+import React, { useState } from "react";
+import { CheckboxValuesType } from "../../types";
+import { FormValuesType, verifyCheckboxes } from "./utils";
+import { generatePassword } from "../../logic/passwords";
+
 import styles from "./index.module.css";
 import arrowImage from "../../assets/images/icon-arrow-right.svg";
 import checkmarkImage from "../../assets/images/icon-check.svg";
@@ -7,14 +12,15 @@ import StrengthIndicator from "../StrengthIndicator";
 interface CheckboxProps {
     id: string;
     name: string;
-    value: string;
     label: string;
+    checked: boolean;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox = ({ id, name, value, label }: CheckboxProps): JSX.Element => {
+const Checkbox = ({ id, name, label, checked, handleChange }: CheckboxProps): JSX.Element => {
     return (
         <label htmlFor={id} className={styles.checkboxContainer}>
-            <input type="checkbox" id={id} name={name} value={value} />
+            <input type="checkbox" id={id} name={name} onChange={handleChange} checked={checked} />
             <div className={styles.checkmark}>
                 <img src={checkmarkImage} />
             </div>
@@ -23,22 +29,104 @@ const Checkbox = ({ id, name, value, label }: CheckboxProps): JSX.Element => {
     );
 };
 
-const Form = (): JSX.Element => {
+interface FormProps {
+    updatePassword: (password: string) => void;
+}
+
+const Form = ({ updatePassword }: FormProps): JSX.Element => {
+    const [passwordLength, setPasswordLength] = useState(8);
+    const [formValues, setFormValues] = useState<FormValuesType>({
+        uppercase: false,
+        lowercase: false,
+        numbers: false,
+        symbols: false,
+    });
+
+    const { uppercase, lowercase, numbers, symbols } = formValues;
+
+    const handleSubmit = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+
+        const isValid = verifyCheckboxes(formValues);
+
+        const config: CheckboxValuesType = {
+            includeUpper: uppercase,
+            includeLower: lowercase,
+            includeNumbers: numbers,
+            includeSymbols: symbols,
+        };
+
+        if (isValid) {
+            const newPassword = generatePassword(passwordLength, config);
+            updatePassword(newPassword);
+        }
+    };
+
+    const handlePasswordLengthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const length = parseInt(e.target.value, 10);
+
+        setPasswordLength(length);
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newFormValues = { ...formValues };
+        const name = e.target.name;
+        const currentCheckedValue = formValues[name];
+
+        if (currentCheckedValue === undefined) {
+            newFormValues[name] = false;
+        } else {
+            newFormValues[name] = !currentCheckedValue;
+        }
+
+        setFormValues(newFormValues);
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.characterLength}>
                 <div>Character Length</div>
-                <span>10</span>
+                <span>{passwordLength}</span>
             </div>
 
-            <form id="strengthForm" className={styles.form}>
+            <form id="strengthForm" className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.slider}>
-                    <input type="range" min={0} max={22} defaultValue={8} />
+                    <input
+                        type="range"
+                        min={0}
+                        max={18}
+                        defaultValue={passwordLength}
+                        onChange={handlePasswordLengthChange}
+                    />
                 </div>
-                <Checkbox id="uppercaseCheckbox" name="uppercase" value="yes" label="Include Uppercase Letters" />
-                <Checkbox id="lowercaseCheckbox" name="lowercase" value="yes" label="Include Lowercase Letters" />
-                <Checkbox id="numbersCheckbox" name="numbers" value="yes" label="Include Numbers" />
-                <Checkbox id="symbolsCheckbox" name="symbols" value="yes" label="Include Symbols" />
+                <Checkbox
+                    id="uppercaseCheckbox"
+                    name="uppercase"
+                    label="Include Uppercase Letters"
+                    checked={uppercase}
+                    handleChange={handleChange}
+                />
+                <Checkbox
+                    id="lowercaseCheckbox"
+                    name="lowercase"
+                    label="Include Lowercase Letters"
+                    checked={lowercase}
+                    handleChange={handleChange}
+                />
+                <Checkbox
+                    id="numbersCheckbox"
+                    name="numbers"
+                    label="Include Numbers"
+                    checked={numbers}
+                    handleChange={handleChange}
+                />
+                <Checkbox
+                    id="symbolsCheckbox"
+                    name="symbols"
+                    label="Include Symbols"
+                    checked={symbols}
+                    handleChange={handleChange}
+                />
             </form>
             <StrengthIndicator />
             <button form="strengthForm" className={styles.submitButton}>
