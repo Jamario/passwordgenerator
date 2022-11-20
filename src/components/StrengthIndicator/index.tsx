@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import { IndicatorStrengths } from "../../assets/utils/enums";
+import { IndicatorStrengths } from "../../enums";
 
 const StrengthIndicator = (): JSX.Element => {
     const passwordStrength = IndicatorStrengths.MEDIUM;

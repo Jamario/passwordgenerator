@@ -18,6 +18,18 @@
     font-size: 1.8rem;
 }
 
+.copyIcon {
+    fill: var(--color-green);
+}
+
+.copyIcon:hover{
+    fill: var(--color-white);
+}
+
 .container img:hover {
     color: var(--color-white);
+}
+
+.passwordFaded {
+    opacity: 0.25;
 }
