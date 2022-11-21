@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CheckboxValuesType } from "../../types";
 import { FormValuesType, verifyCheckboxes } from "./utils";
-import { generatePassword } from "../../logic/passwords";
+import { IndicatorStrengths } from "../../enums";
+import { generatePassword, estimatePasswordStrength } from "../../logic/passwords";
 
 import styles from "./index.module.css";
 import arrowImage from "../../assets/images/icon-arrow-right.svg";
@@ -35,6 +36,7 @@ interface FormProps {
 
 const Form = ({ updatePassword }: FormProps): JSX.Element => {
     const [passwordLength, setPasswordLength] = useState(8);
+    const [passwordStrength, setPasswordStrength] = useState<IndicatorStrengths | null>(null);
     const [formValues, setFormValues] = useState<FormValuesType>({
         uppercase: false,
         lowercase: false,
@@ -58,6 +60,8 @@ const Form = ({ updatePassword }: FormProps): JSX.Element => {
 
         if (isValid) {
             const newPassword = generatePassword(passwordLength, config);
+            const estimatedPasswordStrength = estimatePasswordStrength(newPassword);
+            setPasswordStrength(estimatedPasswordStrength);
             updatePassword(newPassword);
         }
     };
@@ -128,7 +132,7 @@ const Form = ({ updatePassword }: FormProps): JSX.Element => {
                     handleChange={handleChange}
                 />
             </form>
-            <StrengthIndicator />
+            <StrengthIndicator passwordStrength={passwordStrength} />
             <button form="strengthForm" className={styles.submitButton}>
                 Generate
                 <img src={arrowImage} alt="Right arrow" />
