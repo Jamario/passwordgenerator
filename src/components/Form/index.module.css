@@ -47,9 +47,9 @@
     visibility: hidden;
 }
 
-/* .checkboxContainer:hover input ~ .checkmark {
+.checkboxContainer:hover input ~ .checkmark {
     opacity: 0.5;
-} */
+}
 
 .checkboxContainer input:checked ~ .checkmark {
     background-color: var(--color-green);
@@ -71,8 +71,19 @@
     text-transform: uppercase;
 }
 
-.submitButton img {
-    margin-left: 16px;
+.submitButton:hover {
+    background-color: var(--color-dark-grey);
+    border: 2px solid var(--color-green);
+    color: var(--color-green);
+}
+
+.submitButton:hover svg {
+    fill: var(--color-green);
+}
+
+.submitButton svg {
+    margin-left: 12px;
+    position: relative;
 }
 
 /* Slide styles */
