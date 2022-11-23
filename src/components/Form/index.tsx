@@ -93,7 +93,7 @@ const Form = ({ updatePassword }: FormProps): JSX.Element => {
                 <span>{passwordLength}</span>
             </div>
 
-            <form id="strengthForm" className={styles.form} onSubmit={handleSubmit}>
+            <form id="strengthForm" onSubmit={handleSubmit}>
                 <RangeInput min={0} max={18} value={passwordLength} handleChange={handlePasswordLengthChange} />
                 <Checkbox
                     id="uppercaseCheckbox"

@@ -17,3 +17,13 @@
     color: var(--color-med-grey);
     text-align: center;
 }
+
+@media (min-width: 376px) {
+    .generator {
+        max-width: 540px;
+    }
+
+    .header {
+        font-size: 2.4rem;
+    }
+}

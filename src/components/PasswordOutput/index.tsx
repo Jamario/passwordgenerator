@@ -21,7 +21,6 @@ const PasswordOutput = ({ generatedPassword }: AppProps): JSX.Element => {
         }
 
         const ref = window.setTimeout(() => {
-            console.log("timeout elapsed");
             setDisplayNotification(false);
         }, 700);
 
@@ -37,7 +36,7 @@ const PasswordOutput = ({ generatedPassword }: AppProps): JSX.Element => {
 
     return (
         <div className={styles.container}>
-            <span className={`${styles.password} ${!hasPassword && styles.passwordFaded}`}>{password}</span>
+            <div className={`${styles.password} ${!hasPassword && styles.passwordFaded}`}>{password}</div>
             <div className={styles.right}>
                 <span className={`${styles.copied} ${displayNotification ? styles.show : styles.hide}`}>Copied</span>
                 <span onClick={handleCopyClick}>

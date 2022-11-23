@@ -11,8 +11,13 @@
 }
 
 .password {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: inherit;
     font-size: 2.4rem;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .copy {
@@ -54,4 +59,16 @@
 .right {
     display: flex;
     align-items: center;
+}
+
+@media (min-width: 376px) {
+    .container {
+        height: 80px;
+        padding: 0 28px;
+        margin: 24px 0;
+    }
+
+    .password {
+        font-size: 3.2rem;
+    }
 }

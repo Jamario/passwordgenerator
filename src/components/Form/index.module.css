@@ -85,3 +85,13 @@
     margin-left: 12px;
     position: relative;
 }
+
+@media (min-width: 376px) {
+    .container {
+        padding: 34px 32px;
+    }
+
+    .characterLength > span {
+        font-size: 2.6rem;
+    }
+}
