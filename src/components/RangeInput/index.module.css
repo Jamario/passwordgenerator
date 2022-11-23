@@ -1,0 +1,78 @@
+
+/* Slide styles */
+.slider {
+    margin-bottom: 32px;
+}
+
+/*
+* truly grateful for,
+ https://css-tricks.com/sliding-nightmare-understanding-range-input/
+ https://toughengineer.github.io/demo/slider-styler/slider-styler.html
+*/
+
+.slider > input {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--val) - var(--min))/var(--range));
+    --sx: calc(.5*8px + var(--ratio)*(100% - 8px)); 
+
+    appearance: none;
+    background: transparent;
+    width: 100%;
+}
+
+.slider > input:focus {
+    outline: none;
+}
+
+
+.slider > input::-webkit-slider-runnable-track {
+    background: linear-gradient(var(--color-green), var(--color-green)) 0/var(--sx) 100% no-repeat, var(--color-background);
+    height: 8px;
+}
+
+.slider > input::-webkit-slider-thumb {
+    appearance: none;
+    background-color: var(--color-white);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -10px;
+    border: none;
+}
+
+.slider > input::-webkit-slider-thumb:hover{
+    background-color: var(--color-dark-grey);
+    border: 2px solid var(--color-green);
+}
+
+.slider > input::-moz-range-track {
+    background-color: var(--color-background);
+    height: 8px;
+}
+
+.slider > input::-moz-range-thumb {
+    appearance: none;
+    background-color: var(--color-white);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.slider > input::-moz-range-thumb:hover{
+    background-color: var(--color-dark-grey);
+    border: 2px solid var(--color-green);
+}
+
+
+.slider > input::-moz-range-progress {
+    height: 8px;
+    background: var(--color-green);
+}
+
+.slider > input::-ms-fill-lower {
+    height: 8px;
+    background: var(--color-green);
+  }

@@ -5,10 +5,10 @@ import { IndicatorStrengths } from "../../enums";
 import { generatePassword, estimatePasswordStrength } from "../../logic/passwords";
 
 import styles from "./index.module.css";
-import arrowImage from "../../assets/images/icon-arrow-right.svg";
 import checkmarkImage from "../../assets/images/icon-check.svg";
 
 import StrengthIndicator from "../StrengthIndicator";
+import RangeInput from "../RangeInput";
 
 interface CheckboxProps {
     id: string;
@@ -94,15 +94,7 @@ const Form = ({ updatePassword }: FormProps): JSX.Element => {
             </div>
 
             <form id="strengthForm" className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.slider}>
-                    <input
-                        type="range"
-                        min={0}
-                        max={18}
-                        defaultValue={passwordLength}
-                        onChange={handlePasswordLengthChange}
-                    />
-                </div>
+                <RangeInput min={0} max={18} value={passwordLength} handleChange={handlePasswordLengthChange} />
                 <Checkbox
                     id="uppercaseCheckbox"
                     name="uppercase"
