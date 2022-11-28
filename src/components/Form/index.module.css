@@ -47,10 +47,6 @@
     visibility: hidden;
 }
 
-.checkboxContainer:hover input ~ .checkmark {
-    opacity: 0.5;
-}
-
 .checkboxContainer input:checked ~ .checkmark {
     background-color: var(--color-green);
     border: none;
@@ -71,19 +67,25 @@
     text-transform: uppercase;
 }
 
-.submitButton:hover {
-    background-color: var(--color-dark-grey);
-    border: 2px solid var(--color-green);
-    color: var(--color-green);
-}
-
-.submitButton:hover svg {
-    fill: var(--color-green);
-}
-
 .submitButton svg {
     margin-left: 12px;
     position: relative;
+}
+
+@media (hover: hover) {
+    .checkboxContainer:hover input ~ .checkmark {
+        opacity: 0.5;
+    }
+
+    .submitButton:hover {
+        background-color: var(--color-dark-grey);
+        border: 2px solid var(--color-green);
+        color: var(--color-green);
+    }
+    
+    .submitButton:hover svg {
+        fill: var(--color-green);
+    }
 }
 
 @media (min-width: 376px) {

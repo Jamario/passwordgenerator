@@ -28,10 +28,6 @@
     fill: var(--color-green);
 }
 
-.copyIcon:hover{
-    fill: var(--color-white);
-}
-
 .copied {
     color: var(--color-green);
     font-size: 1.6rem;
@@ -48,10 +44,6 @@
     display: inline;
 }
 
-.container img:hover {
-    color: var(--color-white);
-}
-
 .passwordFaded {
     opacity: 0.25;
 }
@@ -59,6 +51,12 @@
 .right {
     display: flex;
     align-items: center;
+}
+
+@media (hover: hover) {
+    .copyIcon:hover{
+        fill: var(--color-white);
+    }
 }
 
 @media (min-width: 376px) {
